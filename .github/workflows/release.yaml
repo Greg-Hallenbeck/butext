@@ -39,7 +39,7 @@ jobs:
       name: pypi
       url: https://pypi.org/p/butext
     permissions:
-      id-token: ${{ secrets.<token placeholder> }}
+      id-token: ${{ secrets.PYPI }}
     steps:
     - name: Download all the dists
       uses: actions/download-artifact@v4
@@ -59,7 +59,7 @@ publish-to-testpypi:
       url: https://test.pypi.org/p/butext
 
     permissions:
-      id-token: ${{ secrets.<token placeholder> }}
+      id-token: ${{ secrets.TEST_PYPI }}
 
     steps:
     - name: Download all the dists
