@@ -36,7 +36,7 @@ jobs:
     - build
     runs-on: ubuntu-latest
     environment:
-      name: pypi
+      name: release
       url: https://pypi.org/p/butext
     permissions:
       id-token: write #${{ secrets.PYPI }}
@@ -55,7 +55,7 @@ jobs:
     runs-on: ubuntu-latest
 
     environment:
-      name: testpypi
+      name: release
       url: https://test.pypi.org/p/butext
 
     permissions:
