@@ -2,6 +2,12 @@
 Text Mining Library Developed @ Binghamton University
 
 ```python
+import pandas as pd
+import butext as bax
+import numpy as np
+import re
+from wordcloud import STOPWORDS
+
 def tokenize(df, col):
   '''Tokenizes the text in a specified column of a DataFrame.
 
@@ -72,7 +78,7 @@ spam.head()
 
 spam = (
     spam
-    .pipe(tokenize, 'text')
+    .pipe(bax.tokenize, 'text')
 )
 spam #returns DataFrame with an extra 'word' column that is each token
 
@@ -85,7 +91,7 @@ spam_freq = (
     .value_counts(normalize= True)
     .reset_index()
     .query('proportion > 0.0005') # gets rid of meaningless words, helps clean the result
-    .pipe(rel_freq, 'class')
+    .pipe(bax.rel_freq, 'class')
 )
 spam_freq = spam_freq.sort_values(by = 'logratio', ascending= True)
 spam_freq
@@ -98,7 +104,7 @@ spam_tfidf = (
     .groupby('class')['word']
     .value_counts(normalize=True)
     .reset_index(name='text_freq')
-    .pipe(tf_idf, col='class')
+    .pipe(bax.tf_idf, col='class')
 )
 x = spam_tfidf.sort_values(by = 'tf_idf', ascending= False)
 x = x.loc[x.tf_idf != 0] # many words will have tf_idf = 0 but those words usually aren't important, so we can filter them out for cleaner results
