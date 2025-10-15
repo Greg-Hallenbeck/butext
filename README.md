@@ -63,7 +63,7 @@ def tf_idf(df, col):
   N = df[col].nunique()
   doc['idf'] = np.log(N / doc['df'])
   result = df.merge(doc[['word', 'idf']], on='word')
-  result['tf_idf'] = result['text_freq'] * result['idf']
+  result['tf_idf'] = result['proportion'] * result['idf']
   return result
 
 spam = pd.read_csv("https://raw.githubusercontent.com/Greg-Hallenbeck/HARP-210-NLP/main/datasets/SMSSpamCollection.tsv", sep="\t")
