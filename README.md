@@ -63,6 +63,7 @@ def tf_idf(df, col):
   N = df[col].nunique()
   doc['idf'] = np.log(N / doc['df'])
   result = df.merge(doc[['word', 'idf']], on='word')
+  result = result.rename(columns = {"proportion" : "tf"})
   result['tf_idf'] = result['proportion'] * result['idf']
   return result
 
