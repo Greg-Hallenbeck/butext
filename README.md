@@ -1,7 +1,7 @@
 # butext
 Text Mining Library Developed @ Binghamton University
 
-```python
+   python
 import pandas as pd
 import butext as bax
 import numpy as np
@@ -16,7 +16,7 @@ def tokenize(df, col):
   df : pandas.DataFrame
       The input DataFrame containing the text data.
   col : str
-       The name of the column in `df` that contains text to tokenize.
+       The name of the column in df that contains text to tokenize.
 
   Returns
   -------
