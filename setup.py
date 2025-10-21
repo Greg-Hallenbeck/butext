@@ -9,6 +9,6 @@ setup(
     install_requires=[
         'pandas',
         'numpy',
-        'wordcloud'
+        'scikit-learn'
     ]
 )

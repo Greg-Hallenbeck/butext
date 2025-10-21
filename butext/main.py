@@ -1,7 +1,7 @@
 import re
 import pandas as pd
 import numpy as np
-from wordcloud import STOPWORDS
+from sklearn.feature_extraction.text import ENGLISH_STOP_WORDS
 
 def tokenize(df, col):
   '''Tokenizes the text in a specified column of a DataFrame.
@@ -67,3 +67,20 @@ def tf_idf(df, col):
   result = result.rename(columns = {"proportion" : "tf"})
   result['tf_idf'] = result['tf'] * result['idf']
   return result
+
+def stopwords(df,col):
+  '''Removes stopwords according to sklearn's english stopwords
+
+  Parameters
+  ----------
+  df: pandas.DataFrame
+     The input DataFrame in which you want to remove stopwords
+  col:
+      The columns in which you want to remove stopwords from
+
+  Returns
+  ----------
+  The same DataFrame but with the stopwords removed from the desired columns'''
+
+  df = df = df.loc[ ~df[col].isin(ENGLISH_STOP_WORDS) ]
+  return df
