@@ -83,7 +83,7 @@ spam = (
 spam #returns DataFrame with an extra 'word' column that is each token
 
 df = spam[['class', 'word']]
-df = df.loc[ ~df["word"].isin(STOPWORDS) ] #remvoes stop words for more meaningful results
+df = bax.stopwords(df, 'word') #remvoes stop words for more meaningful results
 
 spam_freq = (
     df
