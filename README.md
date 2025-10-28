@@ -96,9 +96,6 @@ spam_freq = (
 spam_freq = spam_freq.sort_values(by = 'logratio', ascending= True)
 spam_freq
 
-df = spam[['class', 'word']]
-df = df.loc[ ~df["word"].isin(STOPWORDS) ] #remvoes stop words for more meaningful results
-
 spam_tfidf = (
     df
     .groupby('class')['word']
