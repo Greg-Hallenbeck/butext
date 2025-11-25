@@ -40,12 +40,12 @@ This is important because if a word has a higher frequnecy in document 1, the lo
 
 	rel_freq = (
     		spam
-    		.pipe(bax.tokenize, 'text') #tokenize text
-    		.pipe(bax.stopwords, 'word') # removes stopwords
-    		.groupby('class')['word'].value_counts(normalize = True) # calculates text frequencies per class
+    		.pipe(bax.tokenize, 'text') 
+    		.pipe(bax.stopwords, 'word') 
+    		.groupby('class')['word'].value_counts(normalize = True) 
     		.reset_index()
-    		.query('proportion > 0.0005') # removes meaningless words
-    		.pipe(bax.rel_freq, 'class') # calculates relative frequency
+    		.query('proportion > 0.0005') 
+    		.pipe(bax.rel_freq, 'class') 
 	)
 
 .. code-block :: python
