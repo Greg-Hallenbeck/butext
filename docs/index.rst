@@ -1,17 +1,48 @@
-================
-BUtext
-================
+======================
+Welcome to **BUtext**!
+======================
 
-Welcome to the documentation for **BUtext**!
+**BUtext** focuses on text processing techniques commonly used in Natural Language Processing (NLP).  
+This documentation will cover the following topics:
 
-Here you can find explanations, sample code and our references.
+* Tokenization  
+* Relative Frequency  
+* Term Frequency–Inverse Document Frequency (TF–IDF)
+* Logistic Regression
+* Support Vector Machine (SVM)
+* Principle Component Analysis (PCA)
 
 
+
+
+
+Overview
+===============
+
+ .. toctree::
+   :maxdepth: 2
+   :caption: Getting Started
+
+   intro
+ 
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Concepts
 
-   intro
-   usage
+   tokenization
+   relativefreq
+   tfidf
+   
+.. toctree::
+   :maxdepth: 2
+   :caption: BUtext in Action
+
+   intro_usage
+   logreg
+   SVM
+   PCA
+
+
+
 

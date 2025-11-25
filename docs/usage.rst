@@ -1,84 +1,26 @@
-=======
-Usage
-=======
 
 
+Support Vector Machine (SVM) Example 
+------------------------------------
+A SVM is a supervised learning model that is used for classifciation tasks. It tries to find the best line or hyperplane, depending on the dimesion of the data, to seperate the data from different classes. It also tries to maximize the distance between the boundary and the nearest point of each class. It is a very popular and accepted model used for many different scenarios, with one of those being learning textual data.
 
-Here is an example of importing the proper libraries and functions:
+TF-IDF works with the SVM model since it does not understand words, it only understands numbers. TF-IDF assigns numerical values to each word that the model can understand. It also reduces the noise of the data as the common words get asigned zero or close to zero, while the more unique words to a class hold more weight. In the case of spam vs ham messages, there is often disinct word patterns that TF-IDF picks up on. For those reasons, TF-IDF would work well for building a SVM model.
+
+To Learn More about SVM: https://en.wikipedia.org/wiki/Support_vector_machine
+
 
 .. code-block :: python
+.. code-block :: python
 
- import pandas as pd
- #import BUtext as bax
- import numpy as np
- import re
- from wordcloud import STOPWORDS
 
- def tokenize(df, col):
-   '''Tokenizes the text in a specified column of a DataFrame.
 
-  Parameters
-  ----------
-  df : pandas.DataFrame
-      The input DataFrame containing the text data.
-  col : str
-       The name of the column in `df` that contains text to tokenize.
+.. code-block :: none
+.. code-block :: none
+.. code-block :: none
+.. code-block :: none
 
-  Returns
-  -------
-  pandas.DataFrame
-  A new DataFrame with an additional column called 'word',
-  where each row corresponds to a single token.
-  '''
-  tokens= df.assign(word= df[col].str.lower().str.findall(r"\w+(?:\S?\w+)*")).explode("word")
-  return tokens
 
-   tokens= df.assign(word= df[col].str.lower().str.findall(r"\w+(?:\S?\w+)*")).explode("word")
-   return tokens
 
-   def rel_freq(df, col):
-   '''Calculates the realtive frequency of a word between two documents
 
-   Parameters
-   ----------
-   df : pandas.DataFrame
-       The input DataFrame containing text data
-   col : str
-        The name of the column containg the two docuemnts you want to find relative frequency of
 
-   Returns
-   ----------
-   pandas.DataFrame
-   A new DataFrame with the column word, a column of the text frequencies of the word in each document,
-   relative frequency column, and logratio column'''
-   df = df.pivot(index='word', columns= col, values='proportion')
-   df = df.reset_index()
-   df.loc[df[df.columns[1]].isna(), df.columns[1]] = 0.0005/2
-   df.loc[df[df.columns[2]].isna(), df.columns[2]]  = 0.0005/2
-   df['rel_freq'] = df[df.columns[1]]/df[df.columns[2]]
-   df["logratio"] = np.log10(df["rel_freq"])
-   return df
 
- def tf_idf(df, col):
-   '''Calculates the Text Frequency-Inverse Document Frequency(TF-IDF) of each word per document
-
-  Parameters
-  ----------
-  df: pandas.DataFrame
-     The input DataFrame containing text data
-  col : str
-       The name of the column containing the documents you want to find TF-IDF of
-
-  Returns
-  ----------
-  A new DataFrame with a column of the document, a column of the word,
-  a column of the words text frequency corresponding to document, a column for idf,
-  and a column for tf_idf'''
-  doc = df.groupby('word')[col].count().reset_index(name='df')
-  N = df[col].nunique()
-  doc['idf'] = np.log(N / doc['df'])
-  result = df.merge(doc[['word', 'idf']], on='word')
-  result['tf_idf'] = result['text_freq'] * result['idf']
-  return result
-
-This is a normal text paragraph again.

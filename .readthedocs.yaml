@@ -16,4 +16,4 @@ formats:
 
 python:
   install:
-    - requirements: butext.egg-info/requires.txt
+    - requirements: docs/requirements
