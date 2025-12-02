@@ -15,10 +15,11 @@ Uploading Dataset
 
 .. code-block :: python
 
+	ntflx = pd.read_csv("https://raw.githubusercontent.com/Greg-Hallenbeck/class-datasets/main/datasets/netflix.csv")
+	ntflx
 
 	
 
-** **
 
 .. code-block :: python
 
@@ -38,9 +39,17 @@ Uploading Dataset
     reservedf = df[[title] + preserves]
 
 	
-**Output**
 
-** **
+.. code-block :: python
+
+	ntflx["genre"] = ""
+	ntflx.loc[ntflx["genres"].str.contains("drama"), "genre"] = "drama"
+	ntflx.loc[ntflx["genres"].str.contains("comedy"),"genre"] = "comedy"
+	ntflx.loc[ntflx["genres"].str.contains("horror"),"genre"] = "horror"
+	ntflx.loc[ntflx["genres"].str.contains("romance"),"genre"] = "romance"
+	ntflx.loc[ntflx["genres"].str.contains("documentation"),"genre"] = "documentary"
+	ntflx = ntflx.loc[ntflx["genre"] != ""]
+	ntflx
 
 .. code-block :: python
 
@@ -52,12 +61,15 @@ Uploading Dataset
 
 	
 
-**Output**
 
-.. code-block :: none
+.. code-block :: python
+
+	pca = PCA(n_components=2) #2-dimensional PCA
+	X_red = pca.fit(X).transform(X)
+	pca.explained_variance_ratio_ #percenage of variance in the data explained by PC1 and PC2 respectively
 
 
-** **
+
 
 .. code-block :: python
 
