@@ -61,11 +61,11 @@ TF-IDF works with the SVM model since it does not understand words, it only unde
 
 .. code-block :: python
 
-	X = spam_tfidf.pivot(index="doc_id", columns="word", values="tf_idf").fillna(0) #Convert into matrix format for sklearn
+	X = spam_tfidf.pivot(index="doc_id", columns="word", values="tf_idf").fillna(0) 
 
 .. code-block :: python
 
-	y = spam.set_index("doc_id")["class"] # set y to class, as its what we want to predict
+	y = spam.set_index("doc_id")["class"] 
 
 .. code-block :: python
 
@@ -76,7 +76,7 @@ TF-IDF works with the SVM model since it does not understand words, it only unde
 
 .. code-block :: python
 
-	X = csr_matrix(X.values) # converts matrix to sparse as original X was dense, necessary for quick runtime
+	X = csr_matrix(X.values) # converts matrix to sparse 
 
 .. code-block :: python
 
@@ -109,7 +109,7 @@ TF-IDF works with the SVM model since it does not understand words, it only unde
 
 .. code-block :: python
 
-	svm_model2 = SGDClassifier() #This estimates the svm using stochastic gradient decsent, its less exact but fatser and takes less memory
+	svm_model2 = SGDClassifier() #svm estimate
 	svm_model2.fit(X_train, y_train)
 
 .. code-block :: python
