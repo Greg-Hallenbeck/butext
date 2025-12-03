@@ -3,7 +3,7 @@
 
 While the processes of counting words in tokenization is useful, it sometimes can be hard to interpret. This is mainly due to documents containg hundred of thousands or even millions of tokens. So, in general, words tend to appear more, thus making their appeareance less meaningful. So we can then naturally go to use their text frequncy which can be defined as:
 
-𝑇𝐹  = text frequency =  # of times 𝑤𝑜𝑟𝑑 appears in a document/total words in the document 
+	𝑇𝐹  = text frequency =  # of times 𝑤𝑜𝑟𝑑 appears in a document/total words in the document 
 
 Furthermore, we can go on to define their relative frequencies which can be defined as:
 
@@ -11,8 +11,9 @@ Furthermore, we can go on to define their relative frequencies which can be defi
 
 This now allows us to find which words are more frequnetly associated with each document.
 
-Another addition to relative frequencies that assists in intepretation is the logratio. The logration is simply defined as:
-𝑙𝑜𝑔(𝑇𝐹 document 1𝑇𝐹 document 2) 
+Another addition to relative frequencies that assists in intepretation is the logratio. The logratio is simply defined as:
+
+						𝑙𝑜𝑔(𝑇𝐹 document 1𝑇𝐹 document 2) 
 
 This is important because if a word has a higher frequnecy in document 1, the logratio will be more positive, and thus more greatly associated with document 1. This is because  𝑙𝑜𝑔(𝐴𝐵)  = 𝑙𝑜𝑔(𝐴)−𝑙𝑜𝑔(𝐵) 
 
