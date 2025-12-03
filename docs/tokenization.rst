@@ -113,6 +113,26 @@ These are the most common words used in the emails within the whole dataset, how
 	:alt: description
 	:width: 400px
 
+
+.. code-block :: python	
+
+	viz = viz_data.loc[viz_data['class'] == 'ham']
+	viz1 = viz[0:10]
+	sns.barplot(viz1, x = "word", y = 'count')
+	plt.title("Most Common Words in Ham Emails")
+	plt.xlabel("Word")
+	plt.ylabel("Word Count")
+	plt.show()
+
+
+**Output**
+
+.. image:: _build/html/_static/Tokenizationgraph1.png
+	:alt: description
+	:width: 400px
+
+
+
 Now we can analyze the top words in each class. The words in spam make sense with "free" or "claim", however, the top words in Ham make a little less sense. It almost seems like a lot of imformal text, which makes sense if emailing someone you know, but still pretty hard to interpet. This leads us to out topic of Relative Frequencies.
 
 
