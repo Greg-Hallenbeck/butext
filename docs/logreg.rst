@@ -17,10 +17,12 @@ TF-IDF can be used when analyzing text for this model since, like most models, i
 	from sklearn.linear_model import LogisticRegression
 	from sklearn.metrics import classification_report
 
+**Adding index column to data in order to tokenize per email**
+
 .. code-block :: python
 
 	spam = pd.read_csv("https://tinyurl.com/4narz8b3", sep="\t")
-	spam['doc_id'] = range(len(spam)) #Need to tokenize per email, so add index column to data
+	spam['doc_id'] = range(len(spam)) 
 	spam.head()
 
 
@@ -47,13 +49,17 @@ TF-IDF can be used when analyzing text for this model since, like most models, i
 	x = log_tfidf.sort_values(by = 'tf_idf', ascending= False)
 	x = x.loc[x.tf_idf != 0]
 
-.. code-block :: python
-
-	X = log_tfidf.pivot(index="doc_id", columns="word", values="tf_idf").fillna(0) #Convert into matrix format for sklearn
+**Converting into matrix format for sklearn**
 
 .. code-block :: python
 
-	y = spam.set_index("doc_id")["class"] # set y to class, as its what we want to predict
+	X = log_tfidf.pivot(index="doc_id", columns="word", values="tf_idf").fillna(0) 
+
+**Setting y to class, as its what we want to predict**
+
+.. code-block :: python
+
+	y = spam.set_index("doc_id")["class"] 
 	
 .. code-block :: python
 
@@ -121,9 +127,11 @@ TF-IDF can be used when analyzing text for this model since, like most models, i
 	418	18	2.006830
 	8523	urgent	1.952333
 
+**Top ham- indicative words**
+
 .. code-block :: python
 
-	coef_df.tail(10) #top indicative ham words
+	coef_df.tail(10) 
 
 **Output**
 
@@ -155,7 +163,6 @@ TF-IDF can be used when analyzing text for this model since, like most models, i
 	x = spam_tfidf.sort_values(by = 'tf_idf', ascending= False)
 	x = x.loc[x.tf_idf != 0]
 	x
-	#We can see that many word that are important to the regression appear here, showing consistency within results
 
 **Output**
 
@@ -173,6 +180,8 @@ TF-IDF can be used when analyzing text for this model since, like most models, i
 	5828	ham	non	0.000015	0.693147	0.000010
 	5827	ham	noisy	0.000015	0.693147	0.000010
 	5810	ham	nike	0.000015	0.693147	0.000010
+
+We can see that many words that are important to the regression appear here as well, showing consistency within results.
 
 
 
