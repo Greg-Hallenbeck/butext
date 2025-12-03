@@ -34,7 +34,7 @@ Now that our data is loaded, we can use our TF-IDF function to find the most uni
     		.pipe(bax.tf_idf, col='class') 
 	)
 	x = spam_tfidf.sort_values(by = 'tf_idf', ascending= False)
-	x = x.loc[x.tf_idf != 0] # many words will have tf_idf = 0 but those words aren't 		important, so we can filter them out for cleaner results
+	x = x.loc[x.tf_idf != 0] 
 	x
 
 
