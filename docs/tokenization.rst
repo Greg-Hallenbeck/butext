@@ -127,7 +127,7 @@ These are the most common words used in the emails within the whole dataset, how
 
 **Output**
 
-.. image:: _build/html/_static/Tokenizationgraph1.png
+.. image:: _build/html/_static/Tokenization_graph2.png
 	:alt: description
 	:width: 400px
 
