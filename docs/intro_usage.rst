@@ -1,7 +1,7 @@
 Basic Usage 
 -------------------
 
-Importing Necessary Packages
+**Importing Necessary Packages**
 
 .. code-block :: python
 
@@ -12,7 +12,7 @@ Importing Necessary Packages
 	import butext as bax
 
 
-Uploading Dataset
+**Uploading Dataset**
 
 .. code-block :: python
 
@@ -28,7 +28,7 @@ Uploading Dataset
 	1	tm84618		Taxi Driver	 MOVIE	A mentally unstable Vietnam War veteran works ...	1976	R		 113	    ['crime', 'drama']	['US']	NaN	tt0075314	8.3	795222.0	27.612	8.2
 
 
-*Data Tokenization*
+**Data Tokenization**
 
 .. code-block :: python
 
@@ -58,7 +58,7 @@ Uploading Dataset
 	visualize  1
 	iran	   1
 
-*Relative Frequency*
+**Relative Frequency**
 
 .. code-block :: python
 
@@ -113,7 +113,7 @@ Our function is dividing the text frequency of a word in movies description divi
 	:alt: description
 	:width: 400px
 
-*TF-IDF*
+**TF-IDF**
 
 .. code-block :: python
 	
