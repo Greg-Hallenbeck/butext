@@ -41,7 +41,7 @@ TF-IDF works with the SVM model since it does not understand words, it only unde
 
 
 
-**Calculate tf-idf**
+**Calculate TF-IDF**
 
 .. code-block :: python
 
@@ -75,7 +75,7 @@ TF-IDF works with the SVM model since it does not understand words, it only unde
 
 
 
-**Convertig matrix to sparse**
+**Converting matrix to sparse**
 
 .. code-block :: python
 
@@ -85,7 +85,7 @@ TF-IDF works with the SVM model since it does not understand words, it only unde
 
 	X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-**this solves the exact SVM, it is more exact**
+**Solve the exact SVM**
 
 .. code-block :: python
 
