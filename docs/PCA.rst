@@ -94,7 +94,7 @@ By forming principal components, we no longer need to analyze differences betwee
 
 
 
-**Run PCA function**
+**Run PCA**
 
 .. code-block :: python
 
