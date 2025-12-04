@@ -66,7 +66,7 @@ By forming principal components, we no longer need to analyze differences betwee
 
 .. code-block :: python
 
-	ntflx = pd.read_csv("https://raw.githubusercontent.com/Greg-Hallenbeck/class-datasets/main/datasets/netflix.csv")
+	ntflx = pd.read_csv("https://tinyurl.com/27kzukwk")
 	ntflx
 
 .. code-block :: python
