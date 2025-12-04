@@ -20,12 +20,12 @@ TF-IDF works with the SVM model since it does not understand words, it only unde
 	import matplotlib.pyplot as plt
 	import seaborn as sns
 
-**Uploading Datset**
+**Adding index column to data, in order to tokenize per email**
 
 .. code-block :: python
 
    spam = pd.read_csv("https://tinyurl.com/4narz8b3", sep="\t")
-   spam['doc_id'] = range(len(spam)) #Need to tokenize per email, so add index column to data
+   spam['doc_id'] = range(len(spam)) 
    spam.head()
 
 **Output**
@@ -41,7 +41,7 @@ TF-IDF works with the SVM model since it does not understand words, it only unde
 
 
 
-**#Calculate the tfidf of data**
+**Calculate tf-idf**
 
 .. code-block :: python
 
@@ -57,7 +57,7 @@ TF-IDF works with the SVM model since it does not understand words, it only unde
 	x = spam_tfidf.sort_values(by = 'tf_idf', ascending= False)
 	x = x.loc[x.tf_idf != 0]
 
-**Output**
+
 
 .. code-block :: python
 
@@ -74,17 +74,22 @@ TF-IDF works with the SVM model since it does not understand words, it only unde
 	y = y.loc[common_ids]
 
 
+
+**Convertig matrix to sparse**
+
 .. code-block :: python
 
-	X = csr_matrix(X.values) # converts matrix to sparse 
+	X = csr_matrix(X.values)
 
 .. code-block :: python
 
 	X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
+**this solves the exact SVM, it is more exact**
+
 .. code-block :: python
 
-	svm_model = SVC(kernel='linear') #this solves the exact SVM, it is more exact
+	svm_model = SVC(kernel='linear')
 	svm_model.fit(X_train, y_train)
 
 .. code-block :: python
@@ -107,9 +112,11 @@ TF-IDF works with the SVM model since it does not understand words, it only unde
 	weighted avg       0.98      0.98      0.98      1112
 
 
+ **SVM estimate**
+
 .. code-block :: python
 
-	svm_model2 = SGDClassifier() #svm estimate
+	svm_model2 = SGDClassifier()
 	svm_model2.fit(X_train, y_train)
 
 .. code-block :: python
